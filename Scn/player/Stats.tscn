@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5rkkiujvpsg7"]
+
+[ext_resource type="Texture2D" uid="uid://cbh2dp7hrel4x" path="res://Sprites/Sprite-0003.png" id="1_twywh"]
+[ext_resource type="Script" path="res://Scn/player/Stats.gd" id="1_yp6ie"]
+[ext_resource type="Texture2D" uid="uid://ds03xjhpup0g" path="res://Sprites/Sprite-0001.png" id="2_r6akf"]
+[ext_resource type="Texture2D" uid="uid://b2hingpj13o5o" path="res://Sprites/Sprite-0002.png" id="3_if3ah"]
+
+[node name="Stats" type="CanvasLayer"]
+script = ExtResource("1_yp6ie")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+self_modulate = Color(1, 1, 1, 0.870588)
+offset_left = 17.0
+offset_top = 6.0
+offset_right = 178.0
+offset_bottom = 44.0
+value = 50.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_twywh")
+texture_over = ExtResource("2_r6akf")
+texture_progress = ExtResource("3_if3ah")
+tint_over = Color(0.745637, 0.570479, 0.404854, 1)
+tint_progress = Color(0.993509, 0, 0.154418, 1)
+
+[node name="HealthRegen" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[connection signal="timeout" from="HealthRegen" to="." method="_on_health_regen_timeout"]

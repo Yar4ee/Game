@@ -1,0 +1,124 @@
+[gd_scene load_steps=18 format=3 uid="uid://dkpxuqmmdut04"]
+
+[ext_resource type="Script" path="res://WinItem.gd" id="1_6k2uj"]
+[ext_resource type="Texture2D" uid="uid://dtjdig638nffy" path="res://Sprites/key-blue.png" id="2_qwoek"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sijrr"]
+radius = 18.1108
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2cxk"]
+atlas = ExtResource("2_qwoek")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3s0fd"]
+atlas = ExtResource("2_qwoek")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_851yl"]
+atlas = ExtResource("2_qwoek")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m672x"]
+atlas = ExtResource("2_qwoek")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnttr"]
+atlas = ExtResource("2_qwoek")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wajff"]
+atlas = ExtResource("2_qwoek")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uipy8"]
+atlas = ExtResource("2_qwoek")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7clv"]
+atlas = ExtResource("2_qwoek")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5uv5"]
+atlas = ExtResource("2_qwoek")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbk17"]
+atlas = ExtResource("2_qwoek")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12qcf"]
+atlas = ExtResource("2_qwoek")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogy5q"]
+atlas = ExtResource("2_qwoek")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eea41"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2cxk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3s0fd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_851yl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m672x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnttr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wajff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uipy8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7clv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5uv5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbk17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12qcf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogy5q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dh8u6"]
+radius = 14.0
+
+[node name="WinItem" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_6k2uj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_sijrr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_eea41")
+autoplay = "default"
+frame = 4
+frame_progress = 0.677916
+
+[node name="Detector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
+shape = SubResource("CircleShape2D_dh8u6")
+
+[connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]

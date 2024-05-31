@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://d8xyyyanw28m"]
+
+[ext_resource type="Script" path="res://Scn/Collectibles/gold.gd" id="1_ii57x"]
+[ext_resource type="Texture2D" uid="uid://bg4iv244y82pk" path="res://oak_woods_v1.0/Coin_anim.png" id="2_wu7qb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xf32s"]
+radius = 7.07107
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvmpa"]
+atlas = ExtResource("2_wu7qb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxr0d"]
+atlas = ExtResource("2_wu7qb")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgsdu"]
+atlas = ExtResource("2_wu7qb")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2mbq"]
+atlas = ExtResource("2_wu7qb")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yctjn"]
+atlas = ExtResource("2_wu7qb")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbqj3"]
+atlas = ExtResource("2_wu7qb")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0igwq"]
+atlas = ExtResource("2_wu7qb")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00kdj"]
+atlas = ExtResource("2_wu7qb")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6h6fo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvmpa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxr0d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgsdu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2mbq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yctjn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbqj3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0igwq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00kdj")
+}],
+"loop": true,
+"name": &"IDlE",
+"speed": 10.0
+}]
+
+[node name="Gold" type="Area2D"]
+script = ExtResource("1_ii57x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 1)
+shape = SubResource("CircleShape2D_xf32s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, 1)
+scale = Vector2(0.375, 0.375)
+sprite_frames = SubResource("SpriteFrames_6h6fo")
+animation = &"IDlE"
+autoplay = "IDlE"
+frame = 1
+frame_progress = 0.931732
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

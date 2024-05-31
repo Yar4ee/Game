@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://lv4e7lcnfbwy"]
+
+[ext_resource type="PackedScene" uid="uid://ctgqjaodi2pu5" path="res://Scn/BackGround/bg.tscn" id="1_g6i8o"]
+
+[node name="WinSceen" type="Node2D"]
+
+[node name="BG" parent="." instance=ExtResource("1_g6i8o")]
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0.897017, 0.829849, 0, 1)
+offset_left = 291.0
+offset_top = 231.0
+offset_right = 809.0
+offset_bottom = 368.0
+theme_override_font_sizes/font_size = 100
+text = "You won!"
+uppercase = true
